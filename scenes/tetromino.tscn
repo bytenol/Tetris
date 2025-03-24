@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ccmtvxsreo6"]
+
+[ext_resource type="Script" path="res://Scripts/Tetromino.cs" id="1_p0m7i"]
+
+[node name="Tetromino" type="Node2D"]
+script = ExtResource("1_p0m7i")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SaveTimer" type="Timer" parent="."]

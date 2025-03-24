@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://blxmdsd5gjnvh"]
+
+[ext_resource type="Texture2D" uid="uid://d3cifcohhlade" path="res://assets/tileset.png" id="1_3msyx"]
+[ext_resource type="Script" path="res://Scripts/Tile.cs" id="2_o0o8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmq4y"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(30, 30, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjq1c"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5iw8"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx5fy"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1g7r"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(60, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mh20"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(150, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpr2v"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm2su"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(0, 30, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l35ro"]
+atlas = ExtResource("1_3msyx")
+region = Rect2(30, 30, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57d2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmq4y")
+}],
+"loop": true,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjq1c")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5iw8")
+}],
+"loop": true,
+"name": &"lightskyblue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx5fy")
+}],
+"loop": true,
+"name": &"navy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1g7r")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mh20")
+}],
+"loop": true,
+"name": &"purple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpr2v")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm2su")
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l35ro")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[node name="Tile" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_57d2k")
+animation = &"black"
+autoplay = "black"
+centered = false
+script = ExtResource("2_o0o8y")

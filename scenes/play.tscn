@@ -1,0 +1,138 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm7xutrw38t0g"]
+
+[ext_resource type="Script" path="res://Scripts/Tetris.cs" id="1_vvx6q"]
+[ext_resource type="PackedScene" uid="uid://b5ccmtvxsreo6" path="res://scenes/tetromino.tscn" id="3_5fdj4"]
+[ext_resource type="Script" path="res://Scripts/GridDrawer.cs" id="3_ql703"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pib8q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gnkrk"]
+font_size = 23
+font_color = Color(0.0815222, 0.0241251, 0.0186684, 1)
+outline_size = 6
+outline_color = Color(0, 0.603922, 0.937255, 1)
+
+[node name="Tetris" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vvx6q")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" type="ColorRect" parent="UI"]
+material = SubResource("CanvasItemMaterial_pib8q")
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_right = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.646912, 0.832388, 1, 1)
+
+[node name="Label" type="Label" parent="UI/Info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_right = 25.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_gnkrk")
+
+[node name="Label2" type="Label" parent="UI/Info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.5
+offset_top = 83.0
+offset_right = 30.5
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "Level:"
+label_settings = SubResource("LabelSettings_gnkrk")
+
+[node name="Label3" type="Label" parent="UI/Info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 166.0
+offset_right = 32.0
+offset_bottom = 198.0
+grow_horizontal = 2
+text = "Next:"
+label_settings = SubResource("LabelSettings_gnkrk")
+
+[node name="Score" type="Label" parent="UI/Info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_top = 32.0
+offset_right = 31.5
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_gnkrk")
+horizontal_alignment = 1
+
+[node name="Level" type="Label" parent="UI/Info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_top = 114.0
+offset_right = 31.5
+offset_bottom = 146.0
+grow_horizontal = 2
+text = "1"
+label_settings = SubResource("LabelSettings_gnkrk")
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -74.0
+offset_right = -19.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GamePlay" type="Node2D" parent="."]
+
+[node name="GridDrawer" type="Node2D" parent="GamePlay"]
+script = ExtResource("3_ql703")
+
+[node name="Tetromino" parent="GamePlay" instance=ExtResource("3_5fdj4")]
