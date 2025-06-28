@@ -39,6 +39,11 @@ public partial class Tetromino : Node2D
 		nextTetromino = new();
 		AddNextTetromino(4);
 		BlockTexture = (Texture2D)ResourceLoader.Load("res://assets/tileset.png");
+
+		Tetris.OnRestart += () =>
+		{
+			nextTetromino.Clear();
+		};
 	}
 
 
@@ -75,8 +80,8 @@ public partial class Tetromino : Node2D
 		if(!(Tetris.PlayState == GameState.PLAYING)) 
 			return;
 
-		if(shadowTrans.Y < 0)
-			Tetris.SwitchPlayState(GameState.OVER);
+		if (shadowTrans.Y < 0)
+			Tetris.PlayState = GameState.OVER;
 
 		Move();
 		if(pos.Y == shadowTrans.Y) Save();

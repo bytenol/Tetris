@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bo2ecdmveegos"]
+[gd_scene load_steps=3 format=3 uid="uid://bo2ecdmveegos"]
+
+[ext_resource type="Texture2D" uid="uid://dc1yfykkrqt4q" path="res://assets/Tetris_cover.png" id="1_585h2"]
+[ext_resource type="Script" path="res://Scripts/Splash.cs" id="1_aten6"]
 
 [node name="Splash" type="Control"]
 layout_mode = 3
@@ -7,3 +10,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(200, 320)
+script = ExtResource("1_aten6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0414082, 0.259355, 0.512003, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 320)
+texture = ExtResource("1_585h2")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "@Bytenol 2025"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

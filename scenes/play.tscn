@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm7xutrw38t0g"]
+[gd_scene load_steps=7 format=3 uid="uid://dm7xutrw38t0g"]
 
 [ext_resource type="Script" path="res://Scripts/Tetris.cs" id="1_vvx6q"]
 [ext_resource type="PackedScene" uid="uid://b5ccmtvxsreo6" path="res://scenes/tetromino.tscn" id="3_5fdj4"]
@@ -11,6 +11,11 @@ font_size = 23
 font_color = Color(0.0815222, 0.0241251, 0.0186684, 1)
 outline_size = 6
 outline_color = Color(0, 0.603922, 0.937255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xww1r"]
+font_size = 50
+font_color = Color(0.958622, 0.550288, 0.393498, 1)
+outline_size = 2
 
 [node name="Tetris" type="Control"]
 layout_mode = 3
@@ -36,6 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.517647, 0.54902, 1, 0.784314)
 
 [node name="Info" type="ColorRect" parent="UI"]
 material = SubResource("CanvasItemMaterial_pib8q")
@@ -129,6 +135,49 @@ offset_right = -19.0
 offset_bottom = -34.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="GameOverScreen" type="ColorRect" parent="UI"]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.301961, 0.12549, 0.0431373, 0.784314)
+
+[node name="Label" type="Label" parent="UI/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_xww1r")
+
+[node name="Button" type="Button" parent="UI/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 39.0
+offset_right = 14.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.68, 1.68)
+text = "Play Again"
 
 [node name="GamePlay" type="Node2D" parent="."]
 

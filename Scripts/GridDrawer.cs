@@ -19,6 +19,11 @@ public partial class GridDrawer : Node2D
 	{
 		Board = new();
 		ResetBoard();
+
+		Tetris.OnRestart += () =>
+		{
+			ResetBoard();
+		};
 	}
 
 	// Called when the node enters the scene tree for the first time.
@@ -50,7 +55,7 @@ public partial class GridDrawer : Node2D
 					Rect2 src = new(id * 30, 0, 30, 30);
 					DrawTextureRectRegion(Tetromino.BlockTexture, rect, src);
 				}
-				DrawRect(rect, Colors.LightGray, false);
+				DrawRect(rect, new Color((float)(132 / 255), (float)(140 / 255), 1.0f, 0.3f), false);
 			}
 		}
 

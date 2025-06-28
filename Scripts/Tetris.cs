@@ -23,31 +23,41 @@ public partial class Tetris : Control
     public static event GameStateDel OnGameState;
 
     public static int Score { get; private set; } = 0;
-    public static GameState PlayState{ get; private set; }
+    public static GameState PlayState;
 
+
+    private static ColorRect gameOverScreen;
+    private static Button RestartBtn;
+
+    public static event VoidCallbackFn OnRestart;
+    
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         scoreLabel = GetNode<Label>("UI/Info/Score");
         levelLabel = GetNode<Label>("UI/Info/Level");
+        gameOverScreen = GetNode<ColorRect>("UI/GameOverScreen");
+        RestartBtn = GetNode<Button>("UI/GameOverScreen/Button");
+
+        //if(GridDrawer.OnClear)
+
         GridDrawer.OnClear += OnGridClear;
+        PlayState = GameState.PLAYING;
+
+        RestartBtn.Connect("pressed", new Callable(this, nameof(RestartGame)));
+    }
+
+    private void RestartGame()
+    {
+        Score = 0;
+        OnRestart();
         PlayState = GameState.PLAYING;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-    }
-
-    public static void SwitchPlayState(GameState state)
-    {
-        PlayState = state;
-        switch(state)
-        {
-            case GameState.OVER:
-                GD.Print("Game Over");
-            break;
-        }
+        gameOverScreen.Visible = PlayState == GameState.OVER;
     }
 
     public static int GetLevel()
